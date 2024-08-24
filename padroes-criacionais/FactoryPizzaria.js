@@ -1,7 +1,6 @@
 class Pizza {
-    constructor(sabor, ...args) {
-        const [options] = args
-        const { tamanho, borda, extra, opcional } = options
+    constructor(sabor, pizza) {
+        const { tamanho, borda, extra, opcional } = pizza
         this.sabor = sabor
         this.tamanho = tamanho
         this.borda = borda
@@ -21,68 +20,68 @@ class Pizza {
 }
 
 class PizzaMussarela extends Pizza {
-    constructor(...args) {
-        super('Mussarela', ...args)
+    constructor(pizza) {
+        super('Mussarela', pizza)
     }
 }
 
 class PizzaCalabresa extends Pizza {
-    constructor(...args) {
-        super('Calabresa', ...args)
+    constructor(pizza) {
+        super('Calabresa', pizza)
     }
 }
 
 class PizzaFrangoCatupiry extends Pizza {
-    constructor(...args) {
-        super('Franco com Catupiry', ...args)
+    constructor(pizza) {
+        super('Franco com Catupiry', pizza)
     }
 }
 
 class PizzaPortuguesa extends Pizza {
-    constructor(...args) {
-        super('Porguesa', ...args)
+    constructor(pizza) {
+        super('Porguesa', pizza)
     }
 }
 
 class PizzaBanana extends Pizza {
-    constructor(...args) {
-        super('Banana', ...args)
+    constructor(pizza) {
+        super('Banana', pizza)
     }
 }
 
 class FabricaPizza {
-    fabricaPizza(...args) {
+    fabricaPizza(pizza) {
         throw new Error('A pizza deve ser fabricada pela subclass')
     }
 }
 
 class FabricaPizzaMussarela extends FabricaPizza {
-    fabricaPizza(...args) {
-        return new PizzaMussarela(...args)
+    fabricaPizza(pizza) {
+        return new PizzaMussarela(pizza)
     }
 }
 
 class FabricaPizzaCalabresa extends FabricaPizza {
-    fabricaPizza(...args) {
-        return new PizzaCalabresa(...args)
+    fabricaPizza(pizza) {
+        return new PizzaCalabresa(pizza)
     }
 }
 
 class FabricaPizzaFrangoCatupiry extends FabricaPizza {
-    fabricaPizza(...args) {
-        return new PizzaFrangoCatupiry(...args)
+    fabricaPizza(pizza) {
+        return new PizzaFrangoCatupiry(pizza)
     }
 }
 
 class FabricaPizzaPortuguesa extends FabricaPizza {
-    fabricaPizza(...args) {
-        return new PizzaPortuguesa(...args)
+    fabricaPizza(pizza) {
+        return new PizzaPortuguesa(pizza)
     }
 }
 
 class FabricaPizzaBanana extends FabricaPizza {
-    fabricaPizza(...args) {
-        return new PizzaBanana(...args)
+    fabricaPizza(pizza) {
+        return new PizzaBanana(pizza)
     }
 }
 
@@ -145,5 +144,3 @@ console.log(fabricaPizzaBanana
         extra: 'Calda Chocolate'
     })
     .toObject())
-
-
